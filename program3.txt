@@ -1,0 +1,78 @@
+SQL> create table student13(st_id int not null, name varchar(20), primary key(st_id));
+
+Table created.
+
+SQL> create user fathima13 identified by 123;
+
+User created.
+
+SQL> grant select, update, insert on student13 to fathima13;
+
+Grant succeeded.
+
+SQL> grant create session to fathima13;
+
+Grant succeeded.
+
+SQL> connect fathima13;
+Enter password:
+Connected.
+
+SQL> insert into system.student13 values(1,'Arun');
+
+1 row created.
+
+SQL> insert into system.student13 values(2,'Anu');
+
+1 row created.
+
+
+SQL> select * from system.student13;
+
+     ST_ID NAME
+---------- --------------------
+         1 Arun
+         2 Anu
+
+
+SQL> update system.student13 set name='Amal' where st_id = 1;
+
+1 row updated.
+
+SQL> select * from system.student13;
+
+     ST_ID NAME
+---------- --------------------
+         1 Amal
+         2 Anu
+
+SQL> delete from system.student13 where st_id=2;
+delete from system.student13 where st_id=2
+                   *
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> delete from system.student13 where st_id=2;
+delete from system.student13 where st_id=2
+                   *
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> connect system
+Enter password:
+Connected.
+SQL> revoke select, update, insert on student13 from fathima13;
+
+Revoke succeeded.
+
+SQL> connect fathima13
+Enter password:
+Connected.
+SQL> insert into system.student13 values(3,'Akhil');
+insert into system.student13 values(3,'Akhil')
+                   *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
