@@ -1,0 +1,41 @@
+SQL> create table emp13(id int primary key, name varchar(20));
+
+Table created.
+
+SQL> insert into emp13 values(1,'Amal');
+
+1 row created.
+
+SQL> insert into emp13 values(2,'Arun');
+
+1 row created.
+
+SQL> select * from emp13;
+
+        ID NAME
+---------- --------------------
+         1 Amal
+         2 Arun
+
+SQL> commit;
+
+Commit complete.
+
+SQL> savepoint s1;
+
+Savepoint created.
+
+SQL> insert into emp13 values(3,'Anjali');
+
+1 row created.
+
+SQL> rollback to s1;
+
+Rollback complete.
+
+SQL> select * from emp13;
+
+        ID NAME
+---------- --------------------
+         1 Amal
+         2 Arun
