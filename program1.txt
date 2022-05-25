@@ -1,0 +1,40 @@
+SQL> create table student13(roll_no int, student_name varchar(20), courase varchar(20), year int);
+
+Table created.
+
+SQL> alter table student13 add primary key(roll_no);
+
+Table altered.
+
+SQL>  insert into student13 values(1,'Arun','MCA',2020);
+
+1 row created.
+
+SQL>  insert into student13 values(2,'Ben','Mtech',2021);
+
+1 row created.
+
+SQL> insert into student13 values(3,'Joey','BTech',2022);
+
+1 row created.  
+
+SQL> insert into student13 values(4,'Kiran','BTech',2022);
+
+1 row created.
+
+SQL>  insert into student13 values(5,'Sai','BTech',2020);
+
+1 row created.
+
+
+
+
+SQL> truncate table student13;
+
+Table truncated.
+
+
+
+SQL> drop table student13;
+
+Table dropped.

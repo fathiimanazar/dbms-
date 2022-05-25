@@ -1,0 +1,109 @@
+                                 PROGRAM : 1
+                              ________________
+
+SQL> create table employee13(emp_id int primary key, name varchar(20),dpt_name varchar(20),salary int);
+
+Table created.
+
+
+SQL> create table department(dpt_id int primary key, dpt_name varchar(20), HOD varchar(20));
+
+Table created.
+
+
+
+SQL> alter table employee13 add foreign key(dpt_id) references department(dpt_id);
+
+Table altered.
+
+
+SQL> insert into employee13 values(1,'Nona','Sales',10000,1);
+
+1 row created.
+
+SQL> insert into employee13 values(2,'Devika','Finance',25000,3);
+
+1 row created.
+
+SQL> insert into employee13 values(3,'Rohan','HR',35000,2);
+
+1 row created.
+
+SQL> insert into employee13 values(4,'Rasla','HR',15000,2);
+
+1 row created.
+
+SQL> insert into employee13 values(5,'Sona','Sales',18000,1);
+
+1 row created.
+
+
+
+
+SQL> insert into department values(1,'Sales','Ross');
+
+1 row created.
+
+SQL> insert into department values(2,'HR','Joey');
+
+1 row created.
+
+SQL> insert into department values(3,'Finance','Joseph');
+
+1 row created.
+
+
+
+SQL> select * from employee13;
+
+    EMP_ID     NAME                 DEPARTMENT     SALARY     DPT_ID
+    ----------      --------------------   --------------------     ----------        ----------
+         1          Nona                    Sales                    10000          1
+         2          Devika                  Finance                25000          3
+         3          Rohan                  HR                       35000           2
+         4          Rasla                   HR                        15000           2
+         5          Sona                   Sales                     18000           1
+
+
+
+SQL> select * from department;
+
+    DPT_ID     DPT_NAME             HOD
+    ----------     --------------------   --------------------
+         1          Sales                   Ross
+         2          HR                      Joey
+         3          Finance              Joseph
+
+
+
+SQL> update employee13 set salary=15000 where emp_id=1;
+
+1 row updated.
+
+SQL> select * from employee13;
+
+    EMP_ID    NAME                 SALARY     DPT_ID
+     ----------  --------------------     ----------      ----------
+         1       Nona                      15000          1
+         2       Devika                    25000          3
+         3       Rohan                    35000          2
+         4       Rasla                     15000          2
+         5       Sona                      18000          1
+       
+
+6 rows selected.
+
+
+SQL> delete from employee13 where emp_id=4;
+
+1 row deleted.
+
+SQL> select * from employee13;
+
+    EMP_ID  NAME                SALARY     DPT_ID
+    ----------   --------------------  ----------        ----------
+         1       Nona                    15000          1
+         2       Devika                  25000          3
+         3       Rohan                  35000          2
+         5      Sona                     18000          1
+       
