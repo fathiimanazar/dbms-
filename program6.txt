@@ -1,0 +1,107 @@
+SQL> create table employees(id int primary key, first_name varchar(20), last_name varchar(20), department varchar(20), location varchar(20), salary int);
+
+Table created.
+
+SQL> insert into employees values(1,'Harshad','Kuwar','Marketing','Pune',10000);
+
+
+1 row created.
+
+SQL> insert into employees values(2,'Anurag','Rajput','IT','Mumbai',20000);
+
+1 row created.
+
+SQL> insert into employees values(3,'Chaitali','Tarle','IT','Chennai',30000);
+
+1 row created.
+
+SQL> insert into employees values(4,'Pranjal','Patil','IT','Chennai',25000);
+
+1 row created.
+
+SQL> insert into employees values(5,'Suraj','Tripathi','Marketing','Pune',15000);
+
+1 row created.
+
+SQL> insert into employees values(6,'Roshni','Jadhav','Finance','Banglore',20000);
+
+1 row created.
+
+SQL> insert into employees values(7,'Sandhya','Jain','Finance','Banglore',20000);
+
+1 row created.
+
+
+SQL> select * from employees where department = 'IT' and location='Chennai';
+
+        ID FIRST_NAME           LAST_NAME            DEPARTMENT         LOCATION                 SALARY
+---------- -------------------- --------------------                  --------------------        --------------------            ----------
+    3       Chaitali                    Tarle                           IT                                 Chennai                 30000  
+    
+    4       Pranjal                     Patil                           IT                                 Chennai                  25000
+               
+ 
+
+
+SQL> select * from employees where department = 'IT' or location='Chennai';
+
+        ID FIRST_NAME           LAST_NAME            DEPARTMENT       LOCATION                 SALARY
+---------- --------------------          --------------------          --------------------     --------------------            ----------
+
+         2    Anurag               Rajput                                IT                      Mumbai                        20000    
+                  
+         3   Chaitali             Tarle                                     IT                      Chennai                        30000
+
+         4    Pranjal              Patil                                     IT                      Chennai                        25000
+                                
+    SQL> select first_name as empfn,location as address from employees;
+
+EMPFN                ADDRESS
+--------------------     --------------------
+Harshad              Pune
+Anurag               Mumbai
+Chaitali              Chennai
+Pranjal               Chennai
+Suraj                  Pune
+Roshni               Banglore
+Sandhya            Banglore 
+
+SQL> select * from employees where first_name like 'S%';
+
+        ID    FIRST_NAME           LAST_NAME            DEPARTMENT           LOCATION                 SALARY
+----------   --------------------           --------------------        --------------------           --------------------           ----------
+         5   Suraj                          Tripathi                     Marketing                  Pune                         15000
+         7  Sandhya                     Jain                          Finance                     Banglore                    20000
+            
+SQL> select sum(salary),location from employees group by location;
+
+SUM(SALARY) LOCATION
+ -----------          --------------------
+      20000       Mumbai
+      25000      Pune
+      55000      Chennai
+      40000      Banglore
+
+
+SQL> select sum(salary), location from employees group by location having sum(salary)>10000;
+
+SUM(SALARY) LOCATION
+-----------          --------------------
+      20000       Mumbai
+      25000       Pune
+      55000       Chennai
+      40000       Banglore
+
+SQL> select * from employees order by first_name;
+
+        ID FIRST_NAME           LAST_NAME            DEPARTMENT           LOCATION                 SALARY
+---------- --------------------         --------------------         --------------------           --------------------            ----------
+         2 Anurag                      Rajput                       IT                              Mumbai                      20000
+         3 Chaitali                     Tarle                          IT                              Chennai                     30000
+         1 Harshad                    Kuwar                       Marketing                  Pune                         10000
+         4 Pranjal                      Patil                          IT                              Chennai                     25000
+         6 Roshni                     Jadhav                       Finance                    Banglore                    20000
+         7 Sandhya                  Jain                            Finance                    Banglore                    20000
+         5 Suraj                       Tripathi                       Marketing                  Pune                         15000
+
+7 rows selected.
