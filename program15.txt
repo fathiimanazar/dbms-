@@ -1,0 +1,26 @@
+                                                                          PROGRAM - 15
+                                                                      __________________
+
+SQL> declare
+  2      a number;
+  3      b number;
+  4      c number;
+  5  procedure max(x in number, y in number, z out number) is
+  6  begin
+  7      if x > y then
+  8      z:= x;
+  9      else
+ 10      z:= y;
+ 11      end if;
+ 12  end;
+ 13  begin
+ 14      a:= 5;
+ 15      b:= 7;
+ 16      max(a, b, c);
+ 17      dbms_output.put_line(chr(10)||'Maximum = ' || c);
+ 18  end;
+ 19  /
+
+Maximum = 7
+
+PL/SQL procedure successfully completed.
