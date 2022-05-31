@@ -1,0 +1,20 @@
+                                                                         PROGRAM - 16
+                                                                ______________________
+
+SQL> declare
+  2      a number;
+  3      b number;
+  4  procedure square(x in number, y out number) is
+  5  begin
+  6      y:= x*x;
+  7  end;
+  8  begin
+  9      a:= 5;
+ 10      square(a, b);
+ 11      dbms_output.put_line(chr(10)||'Square = ' || b);
+ 12  end;
+ 13  /
+
+Square = 25
+
+PL/SQL procedure successfully completed.
