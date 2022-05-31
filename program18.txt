@@ -1,7 +1,7 @@
                                                                           PROGRAM - 18
                                                                     ____________________
 
-
+set serveroutput on
 SQL>  declare
   2         total_rows number(2);
   3          begin
