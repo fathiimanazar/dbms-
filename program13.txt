@@ -1,0 +1,20 @@
+                                                                         PROGRAM - 13
+                                                                   ____________________
+
+
+
+SQL> declare
+  2      a integer := 5;
+  3      f integer := 1;
+  4  begin
+  5      while a > 0 loop
+  6          f:= f * a;
+  7          a:= a - 1;
+  8      end loop;
+  9      dbms_output.put_line(chr(10)||'Fatorial = '||f);
+ 10  end;
+ 11  /
+
+Fatorial = 120
+
+PL/SQL procedure successfully completed.
