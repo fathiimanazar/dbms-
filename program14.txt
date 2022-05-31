@@ -1,0 +1,23 @@
+                                                                                  PROGRAM - 14
+                                                                           ______________________
+
+SQL> declare
+  2      a integer := 2;
+  3      b integer := 8;
+  4      c integer := 4;
+  5      g integer;
+  6  begin
+  7      g:= a;
+  8      if g<b then
+  9          g:= b;
+ 10      end if;
+ 11      if g<c then
+ 12          g:= c;
+ 13      end if;
+ 14      dbms_output.put_line(chr(10)||'Greater number = '||g);
+ 15  end;
+ 16  /
+
+Greater number = 8
+
+PL/SQL procedure successfully completed.
