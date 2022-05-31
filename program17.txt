@@ -19,7 +19,7 @@ SQL> insert into customers13 values(3,'Mahesh',23,'Gaziabad',24000);
 1 row created.
 SQL> set serveroutput on
 SQL>  create or replace trigger display_salary_changes13
-  2     before delete or insert or update on customers
+  2     before delete or insert or update on customers13
   3      for each row
   4      when (new.id > 0)
   5     declare
