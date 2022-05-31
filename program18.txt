@@ -1,0 +1,29 @@
+                                                                          PROGRAM - 18
+                                                                    ____________________
+
+
+SQL> declare
+  2      total_rows number(2);
+  3      begin
+  4      update customers
+  5     set salary = salary + 5000;
+  6      if sql%notfound then
+  7      dbms_output.put_line('no customers updated');
+  8      elsif sql%found then
+  9      total_rows := sql%rowcount;
+ 10     dbms_output.put_line( total_rows || ' customers updated ');
+ 11     end if;
+ 12     end;
+ 13    /
+Old salary: 2000
+New salary: 7000
+Salary difference: 5000
+Old salary: 1500
+New salary: 6500
+Salary difference: 5000
+Old salary: 2000
+New salary: 7000
+Salary difference: 5000
+3 customers updated
+
+PL/SQL procedure successfully completed.
