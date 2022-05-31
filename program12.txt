@@ -1,0 +1,17 @@
+                                                                     PROGRAM - 12
+                                                               ____________________
+
+SQL> declare
+  2      a integer := 5;
+  3  begin
+  4      if mod(a,2) = 0 then
+  5          dbms_output.put_line(chr(10)||'Even');
+  6      else
+  7          dbms_output.put_line(chr(10)||'Odd');
+  8      end if;
+  9  end;
+ 10  /
+
+Odd
+
+PL/SQL procedure successfully completed.
