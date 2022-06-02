@@ -1,3 +1,6 @@
+
+//create administrator user
+
 > db.createUser({user:"sam",pwd:"password",roles:[{role:"userAdminAnyDatabase",d
 b:"admin"}]});
 Successfully added user: {
@@ -16,7 +19,7 @@ Successfully added user: {
 
 
 
-
+//user for a single database
 
 
 > db.createUser({user:"Employeeadmin",pwd:"password",roles:[{role:"userAdmin",db
@@ -59,6 +62,8 @@ sales"}]);
         ]
 }
 
+
+//assigning multiple roles in database
 
 > db.createUser({user:"Mohan",pwd:"password",roles:[{role:"read",db:"marketing"}
 ,{role:"readWrite",db:"sales"}]});
